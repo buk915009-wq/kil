@@ -1,0 +1,726 @@
+<title>몰디브 프라이빗 허니문</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+/* Layout concept: quiet coastal brochure — alternating full-width bands,
+   generous vertical rhythm, one warm accent reserved for calls to action. */
+:root{
+  --bg:#EDF0EB;
+  --bg-alt:#E2E7E0;
+  --surface:#FBFBF8;
+  --fg:#222826;
+  --fg-muted:#5B655E;
+  --accent:#3C6E63;
+  --accent-ink:#F4F6F3;
+  --accent-warm:#B8804F;
+  --accent-warm-ink:#FBF4EC;
+  --line:#D6DBD2;
+  --font-display:'Noto Serif KR', serif;
+  --font-body:'Noto Sans KR', sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#141917;
+    --bg-alt:#1A1F1C;
+    --surface:#1E2422;
+    --fg:#E7EAE5;
+    --fg-muted:#9FAAA2;
+    --accent:#7FBDAF;
+    --accent-ink:#0F1A17;
+    --accent-warm:#D99A63;
+    --accent-warm-ink:#241A0E;
+    --line:#2B322E;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#141917;
+  --bg-alt:#1A1F1C;
+  --surface:#1E2422;
+  --fg:#E7EAE5;
+  --fg-muted:#9FAAA2;
+  --accent:#7FBDAF;
+  --accent-ink:#0F1A17;
+  --accent-warm:#D99A63;
+  --accent-warm-ink:#241A0E;
+  --line:#2B322E;
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--fg);
+  font-family:var(--font-body);
+  font-size:16px;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{font-family:var(--font-display);font-weight:600;margin:0;text-wrap:balance;}
+p{margin:0;}
+a{color:inherit;}
+img,svg{max-width:100%;display:block;}
+
+.shell{
+  max-width:880px;
+  margin:0 auto;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));
+  padding-right:max(16px, env(safe-area-inset-right, 0px));
+}
+.band{padding-block:72px;}
+.band-alt{background:var(--bg-alt);}
+.band-surface{background:var(--surface);}
+
+.eyebrow{
+  font-size:13px;
+  letter-spacing:.14em;
+  color:var(--accent);
+  font-weight:700;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.eyebrow::before{content:"";width:22px;height:1px;background:var(--accent);display:inline-block;}
+
+/* header */
+.top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding-block:20px;
+}
+.brand{font-family:var(--font-display);font-size:19px;font-weight:700;letter-spacing:.01em;}
+.brand span{color:var(--accent);}
+.top-right{display:flex;align-items:center;gap:14px;font-size:13px;color:var(--fg-muted);}
+.tel{display:none;}
+@media(min-width:560px){.tel{display:inline;}}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:12px 22px;
+  border-radius:999px;
+  font-weight:700;
+  font-size:14px;
+  text-decoration:none;
+  border:1px solid transparent;
+  cursor:pointer;
+  white-space:nowrap;
+}
+.btn-primary{background:var(--accent-warm);color:var(--accent-warm-ink);}
+.btn-ghost{background:transparent;color:var(--fg);border-color:var(--line);}
+.btn-outline{background:transparent;color:var(--accent);border-color:var(--accent);}
+
+/* hero */
+.hero-art{padding-top:28px;}
+.hero-art svg{width:100%;height:auto;border-radius:18px;}
+.hero-copy{padding-block:40px 64px;text-align:left;}
+.hero-copy .eyebrow{margin-bottom:18px;}
+.hero-copy h1{font-size:clamp(28px,5vw,42px);line-height:1.35;margin-bottom:16px;}
+.hero-copy .sub{color:var(--fg-muted);font-size:16px;max-width:520px;margin-bottom:28px;}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;}
+.hero-meta{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+  margin-top:40px;
+  padding-top:28px;
+  border-top:1px solid var(--line);
+}
+@media(max-width:640px){.hero-meta{grid-template-columns:repeat(2,1fr);}}
+.meta-item .k{font-size:12px;color:var(--fg-muted);margin-bottom:6px;}
+.meta-item .v{font-family:var(--font-display);font-size:17px;font-weight:600;}
+
+/* section heading */
+.sec-head{margin-bottom:36px;max-width:620px;}
+.sec-head h2{font-size:clamp(22px,3.4vw,30px);margin-top:14px;}
+.sec-head .desc{color:var(--fg-muted);margin-top:12px;}
+
+/* highlights */
+.grid-highlight{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+.hi-card{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:24px;
+}
+.hi-icon{
+  width:38px;height:38px;border-radius:10px;
+  background:var(--bg-alt);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:16px;color:var(--accent);
+}
+.hi-card h3{font-size:16px;margin-bottom:8px;}
+.hi-card p{color:var(--fg-muted);font-size:14px;}
+
+/* price */
+.price-wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:24px;align-items:start;}
+@media(max-width:720px){.price-wrap{grid-template-columns:1fr;}}
+.price-card{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:32px;
+}
+.price-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:6px;}
+.price-label{font-size:13px;color:var(--fg-muted);}
+.price-num{font-family:var(--font-display);font-size:clamp(28px,4vw,38px);font-weight:700;font-variant-numeric:tabular-nums;}
+.price-num small{font-size:14px;font-weight:500;color:var(--fg-muted);}
+.price-note{font-size:13px;color:var(--fg-muted);margin-top:4px;margin-bottom:22px;}
+.price-rows{border-top:1px solid var(--line);}
+.price-row{
+  display:flex;justify-content:space-between;gap:12px;
+  padding-block:13px;border-bottom:1px solid var(--line);
+  font-size:14px;
+}
+.price-row span:last-child{font-variant-numeric:tabular-nums;color:var(--fg-muted);}
+.incl-box{
+  background:var(--bg-alt);
+  border-radius:18px;
+  padding:28px;
+}
+.incl-box h3{font-size:15px;margin-bottom:14px;}
+.incl-box ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;}
+.incl-box li{display:flex;gap:10px;font-size:14px;color:var(--fg-muted);align-items:flex-start;}
+.incl-box li svg{flex:none;color:var(--accent);margin-top:2px;}
+
+/* itinerary */
+.tl{position:relative;padding-left:70px;}
+.tl::before{content:"";position:absolute;left:28px;top:6px;bottom:6px;width:1px;background:var(--line);}
+.tl-item{position:relative;padding-bottom:36px;}
+.tl-item:last-child{padding-bottom:0;}
+.tl-day{
+  position:absolute;left:-70px;top:0;width:56px;
+  font-family:var(--font-display);font-weight:700;font-size:13px;color:var(--accent);
+  text-align:right;
+}
+.tl-dot{position:absolute;left:24px;top:4px;width:9px;height:9px;border-radius:50%;background:var(--accent);border:2px solid var(--bg);}
+.tl-item h3{font-size:16px;margin-bottom:6px;}
+.tl-item p{color:var(--fg-muted);font-size:14px;margin-bottom:10px;}
+.meal-row{display:flex;gap:6px;}
+.meal{
+  font-size:11px;padding:4px 9px;border-radius:999px;border:1px solid var(--line);color:var(--fg-muted);
+}
+.meal.on{border-color:var(--accent);color:var(--accent);background:var(--bg-alt);}
+
+/* stay */
+.stay-wrap{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center;}
+@media(max-width:720px){.stay-wrap{grid-template-columns:1fr;}}
+.stay-art svg{border-radius:16px;}
+.stay-specs{list-style:none;margin:0;padding:0;}
+.stay-specs li{
+  display:flex;justify-content:space-between;gap:12px;
+  padding-block:13px;border-bottom:1px solid var(--line);font-size:14px;
+}
+.stay-specs li span:first-child{color:var(--fg-muted);}
+
+/* include/exclude */
+.ie-wrap{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+@media(max-width:640px){.ie-wrap{grid-template-columns:1fr;}}
+.ie-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px;}
+.ie-card h3{font-size:15px;margin-bottom:16px;display:flex;align-items:center;gap:8px;}
+.ie-card ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px;}
+.ie-card li{display:flex;gap:10px;font-size:14px;align-items:flex-start;}
+.ie-card.ex li{color:var(--fg-muted);}
+.ie-card svg{flex:none;margin-top:2px;}
+
+/* reviews */
+.rev-scroll{display:flex;gap:16px;overflow-x:auto;padding-bottom:6px;scroll-snap-type:x mandatory;}
+.rev-card{
+  scroll-snap-align:start;
+  flex:0 0 min(300px,80vw);
+  background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;
+}
+.stars{color:var(--accent-warm);font-size:14px;margin-bottom:12px;letter-spacing:.1em;}
+.rev-card p.q{font-size:14px;color:var(--fg);margin-bottom:16px;}
+.rev-who{display:flex;align-items:center;gap:10px;}
+.avatar{
+  width:32px;height:32px;border-radius:50%;background:var(--bg-alt);color:var(--accent);
+  display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;font-family:var(--font-display);
+}
+.rev-who .nm{font-size:13px;font-weight:700;}
+.rev-who .dt{font-size:12px;color:var(--fg-muted);}
+
+/* faq */
+details.faq{border-bottom:1px solid var(--line);padding-block:18px;}
+details.faq summary{
+  list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;
+  font-weight:700;font-size:15px;
+}
+details.faq summary::-webkit-details-marker{display:none;}
+details.faq summary .plus{position:relative;width:16px;height:16px;flex:none;}
+details.faq summary .plus::before,details.faq summary .plus::after{
+  content:"";position:absolute;background:var(--fg-muted);
+}
+details.faq summary .plus::before{left:0;top:7px;width:16px;height:2px;}
+details.faq summary .plus::after{left:7px;top:0;width:2px;height:16px;transition:transform .15s ease;}
+details.faq[open] summary .plus::after{transform:rotate(90deg) scaleY(0);}
+details.faq .a{color:var(--fg-muted);font-size:14px;margin-top:14px;padding-right:28px;}
+
+/* booking steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+@media(max-width:640px){.steps{grid-template-columns:repeat(2,1fr);}}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;}
+.step .n{font-family:var(--font-display);color:var(--accent-warm);font-weight:700;font-size:13px;margin-bottom:10px;}
+.step .t{font-weight:700;font-size:14px;margin-bottom:6px;}
+.step .d{font-size:13px;color:var(--fg-muted);}
+
+.tbl-wrap{overflow-x:auto;margin-top:28px;border:1px solid var(--line);border-radius:14px;}
+table.cancel{width:100%;border-collapse:collapse;font-size:13.5px;min-width:480px;}
+table.cancel th,table.cancel td{padding:12px 16px;text-align:left;border-bottom:1px solid var(--line);}
+table.cancel th{color:var(--fg-muted);font-weight:600;background:var(--bg-alt);}
+table.cancel tr:last-child td{border-bottom:none;}
+table.cancel td:last-child{text-align:right;font-variant-numeric:tabular-nums;}
+
+/* contact */
+.contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+@media(max-width:720px){.contact-wrap{grid-template-columns:1fr;}}
+.contact-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:28px;}
+.contact-card .row{display:flex;justify-content:space-between;align-items:center;padding-block:13px;border-bottom:1px solid var(--line);font-size:14px;}
+.contact-card .row:last-child{border-bottom:none;}
+.contact-card .row .lbl{color:var(--fg-muted);}
+.copy-btn{background:none;border:none;color:var(--accent);font-size:13px;font-weight:700;cursor:pointer;padding:4px;}
+
+.field{margin-bottom:14px;}
+.field label{display:block;font-size:13px;color:var(--fg-muted);margin-bottom:6px;}
+.field input,.field select{
+  width:100%;padding:11px 13px;border:1px solid var(--line);border-radius:9px;
+  background:var(--bg);color:var(--fg);font-family:inherit;font-size:14px;
+}
+.field input:focus,.field select:focus{outline:2px solid var(--accent);outline-offset:1px;}
+
+/* final cta */
+.final-cta{
+  background:var(--accent);
+  color:var(--accent-ink);
+  border-radius:20px;
+  padding:48px 32px;
+  text-align:center;
+  display:flex;flex-direction:column;align-items:center;gap:18px;
+}
+.final-cta h2{color:var(--accent-ink);font-size:clamp(20px,3vw,26px);}
+.final-cta .btn-primary{background:var(--accent-warm);color:var(--accent-warm-ink);}
+
+/* footer */
+footer{border-top:1px solid var(--line);}
+.foot-grid{display:flex;flex-wrap:wrap;gap:28px;justify-content:space-between;padding-block:40px 20px;font-size:12.5px;color:var(--fg-muted);}
+.foot-biz{max-width:480px;line-height:1.9;}
+.foot-biz b{color:var(--fg);}
+.foot-links{display:flex;gap:16px;flex-wrap:wrap;}
+.foot-bottom{padding-block:20px 40px;font-size:12px;color:var(--fg-muted);border-top:1px solid var(--line);}
+.disclaimer{
+  font-size:11.5px;color:var(--fg-muted);background:var(--bg-alt);
+  border-radius:10px;padding:12px 14px;margin-top:18px;
+}
+
+/* mobile sticky cta */
+.mobile-cta{
+  display:none;
+  position:fixed;left:0;right:0;bottom:0;z-index:20;
+  background:var(--surface);
+  border-top:1px solid var(--line);
+  padding:12px max(16px, env(safe-area-inset-right,0px)) max(12px, env(safe-area-inset-bottom,0px)) max(16px, env(safe-area-inset-left,0px));
+  gap:10px;
+}
+@media(max-width:640px){
+  .mobile-cta{display:flex;}
+  body{padding-bottom:76px;}
+}
+.mobile-cta .btn{flex:1;}
+
+@media (prefers-reduced-motion:no-preference){
+  .hi-card,.ie-card,.rev-card,.step{transition:transform .15s ease,border-color .15s ease;}
+  .hi-card:hover,.ie-card:hover,.step:hover{transform:translateY(-2px);border-color:var(--accent);}
+}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+</style>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+
+<div class="shell top">
+  <div class="brand">텐이어즈 <span>· TEN YEARS</span></div>
+  <div class="top-right">
+    <span class="tel">1588-0000</span>
+    <a class="btn btn-outline" href="#contact">상담 신청</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="shell hero-art">
+  <svg viewBox="0 0 1200 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="해 질 무렵 한적한 해변을 걷는 두 사람의 일러스트">
+    <defs>
+      <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#F1D9BE"/>
+        <stop offset="0.55" stop-color="#E7C4A6"/>
+        <stop offset="1" stop-color="#C9A98F"/>
+      </linearGradient>
+      <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#6E968C"/>
+        <stop offset="1" stop-color="#3C6E63"/>
+      </linearGradient>
+    </defs>
+    <rect width="1200" height="460" fill="url(#sky)"/>
+    <circle cx="600" cy="150" r="58" fill="#F4ECD8" opacity="0.9"/>
+    <rect y="230" width="1200" height="110" fill="url(#sea)"/>
+    <g stroke="#F4ECD8" stroke-opacity="0.35" stroke-width="2">
+      <path d="M0 255 Q 300 245 600 258 T 1200 252"/>
+      <path d="M0 285 Q 300 278 600 290 T 1200 284"/>
+    </g>
+    <path d="M0 340 Q 250 300 500 330 Q 750 360 1000 325 Q 1120 310 1200 330 L1200 460 L0 460 Z" fill="#DCC9A6"/>
+    <path d="M0 365 Q 300 335 620 358 Q 880 378 1200 352 L1200 460 L0 460 Z" fill="#CBB48C" opacity="0.6"/>
+    <g fill="#4A4038" opacity="0.75">
+      <circle cx="565" cy="352" r="4.5"/>
+      <rect x="562" y="356" width="7" height="16" rx="3"/>
+      <circle cx="590" cy="348" r="4.5"/>
+      <rect x="587" y="352" width="7" height="16" rx="3"/>
+    </g>
+    <g fill="#4A4038" opacity="0.5">
+      <path d="M150 120 l8 -6 l8 6"/>
+      <path d="M190 100 l8 -6 l8 6"/>
+      <path d="M980 90 l8 -6 l8 6"/>
+    </g>
+  </svg>
+</div>
+
+<div class="shell hero-copy">
+  <div class="eyebrow">결혼 10주년 특별여행</div>
+  <h1>10년의 시간, 다시 떠나는<br>우리의 여행</h1>
+  <p class="sub">사람 많은 관광지 대신, 조용한 해변에서 보내는 단둘만의 시간.<br>몰디브 프라이빗 선셋 허니문 패키지.</p>
+  <div class="hero-cta">
+    <a class="btn btn-primary" href="#contact">상담 신청하기</a>
+    <a class="btn btn-ghost" href="#price">가격 확인하기</a>
+  </div>
+  <div class="hero-meta">
+    <div class="meta-item"><div class="k">여행지</div><div class="v">몰디브</div></div>
+    <div class="meta-item"><div class="k">기간</div><div class="v">4박 6일</div></div>
+    <div class="meta-item"><div class="k">인원</div><div class="v">2인 기준</div></div>
+    <div class="meta-item"><div class="k">출발</div><div class="v">26.12 ~ 27.05</div></div>
+  </div>
+</div>
+
+<!-- HIGHLIGHTS -->
+<section class="band band-alt" id="highlight">
+  <div class="shell">
+    <div class="sec-head">
+      <div class="eyebrow">WHY THIS TRIP</div>
+      <h2>조용히, 단둘이 보내는 10주년</h2>
+      <p class="desc">번잡한 일정 대신 꼭 필요한 것만 담았습니다.</p>
+    </div>
+    <div class="grid-highlight">
+      <div class="hi-card">
+        <div class="hi-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 20c4-6 14-6 18 0"/><circle cx="12" cy="8" r="4"/></svg></div>
+        <h3>프라이빗 비치 풀빌라</h3>
+        <p>전용 해변과 개인 풀이 있는 독립형 빌라에서 지냅니다.</p>
+      </div>
+      <div class="hi-card">
+        <div class="hi-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3c2 3 4 5 4 8a4 4 0 1 1-8 0c0-3 2-5 4-8Z"/></svg></div>
+        <h3>커플 스파 &amp; 선셋 디너</h3>
+        <p>일정 중 1회씩, 해 지는 시간에 맞춰 준비해 드립니다.</p>
+      </div>
+      <div class="hi-card">
+        <div class="hi-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l18-7-7 18-2-8-9-3Z"/></svg></div>
+        <h3>항공석 선택 가능</h3>
+        <p>이코노미부터 비즈니스까지 원하는 등급으로 업그레이드.</p>
+      </div>
+      <div class="hi-card">
+        <div class="hi-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.5 6.5L21 9l-5 4 1.5 7-5.5-3.5L6.5 20 8 13 3 9l6.5-.5Z"/></svg></div>
+        <h3>10주년 웰컴 세트</h3>
+        <p>기념 케이크와 어메니티를 체크인 시 전달합니다.</p>
+      </div>
+      <div class="hi-card">
+        <div class="hi-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4v16h16"/><path d="M8 15l3-4 3 2 4-6"/></svg></div>
+        <h3>자유 일정 중심</h3>
+        <p>단체 가이드 없이, 둘만의 속도로 움직이는 구성입니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICE -->
+<section class="band" id="price">
+  <div class="shell">
+    <div class="sec-head">
+      <div class="eyebrow">PRICE</div>
+      <h2>가격 안내</h2>
+      <p class="desc">2인 기준 1인당 가격이며, 성수기·업그레이드 옵션은 별도 표기되어 있습니다.</p>
+    </div>
+    <div class="price-wrap">
+      <div class="price-card">
+        <div class="price-top">
+          <span class="price-label">기본 패키지 · 1인</span>
+        </div>
+        <div class="price-num">2,390,000<small> 원</small></div>
+        <p class="price-note">2인 출발 시 총 4,780,000원 · 왕복 이코노미 항공 기준</p>
+        <div class="price-rows">
+          <div class="price-row"><span>비즈니스 항공 업그레이드</span><span>+850,000원 / 인</span></div>
+          <div class="price-row"><span>디럭스 풀빌라 업그레이드</span><span>+320,000원 / 인</span></div>
+          <div class="price-row"><span>성수기(연말·설) 추가요금</span><span>+150,000원 / 인</span></div>
+        </div>
+      </div>
+      <div class="incl-box">
+        <h3>이 가격에 포함된 것</h3>
+        <ul>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>왕복 항공권(이코노미), 숙박 4박</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>조식 전일, 선셋 디너 1회, 커플 스파 1회</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>공항–호텔 왕복 전용차량, 여행자보험</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ITINERARY -->
+<section class="band band-alt" id="itinerary">
+  <div class="shell">
+    <div class="sec-head">
+      <div class="eyebrow">ITINERARY</div>
+      <h2>상세 일정</h2>
+      <p class="desc">이동일을 제외하면 대부분 자유 일정입니다.</p>
+    </div>
+    <div class="tl">
+      <div class="tl-item">
+        <div class="tl-day">DAY 01</div><div class="tl-dot"></div>
+        <h3>인천 출발 → 몰디브 말레 도착</h3>
+        <p>공항 미팅 후 전용 스피드보트로 리조트 이동, 체크인 및 휴식</p>
+        <div class="meal-row"><span class="meal">조식 ✕</span><span class="meal">중식 ✕</span><span class="meal on">석식 ✓</span></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day">DAY 02–04</div><div class="tl-dot"></div>
+        <h3>자유 일정 · 선택 액티비티</h3>
+        <p>스노클링, 선셋 크루즈 등 선택 관광을 자유롭게 구성, 2일차 저녁 선셋 디너</p>
+        <div class="meal-row"><span class="meal on">조식 ✓</span><span class="meal">중식 ✕</span><span class="meal">석식 ✕</span></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day">DAY 05</div><div class="tl-dot"></div>
+        <h3>커플 스파 &amp; 마지막 선셋</h3>
+        <p>오전 자유 일정, 오후 커플 스파 진행 후 마지막 밤의 해변 산책</p>
+        <div class="meal-row"><span class="meal on">조식 ✓</span><span class="meal">중식 ✕</span><span class="meal">석식 ✕</span></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day">DAY 06</div><div class="tl-dot"></div>
+        <h3>말레 → 인천 도착</h3>
+        <p>체크아웃 후 공항 이동, 한국行 항공편 탑승</p>
+        <div class="meal-row"><span class="meal on">조식 ✓</span><span class="meal">중식 ✕</span><span class="meal">석식 ✕</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STAY -->
+<section class="band" id="stay">
+  <div class="shell">
+    <div class="sec-head">
+      <div class="eyebrow">STAY</div>
+      <h2>숙소 소개</h2>
+    </div>
+    <div class="stay-wrap">
+      <div class="stay-art">
+        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="비치 프라이빗 풀빌라 외관 일러스트">
+          <rect width="400" height="300" fill="var(--bg-alt)"/>
+          <rect y="190" width="400" height="110" fill="#3C6E63" opacity="0.18"/>
+          <rect x="60" y="120" width="280" height="90" rx="6" fill="#DCC9A6"/>
+          <rect x="60" y="90" width="280" height="34" fill="#C9A98F"/>
+          <rect x="90" y="140" width="50" height="50" fill="#F4ECD8" opacity="0.7"/>
+          <rect x="170" y="140" width="60" height="50" fill="#F4ECD8" opacity="0.5"/>
+          <rect x="250" y="140" width="50" height="50" fill="#F4ECD8" opacity="0.7"/>
+          <ellipse cx="200" cy="245" rx="110" ry="24" fill="#6E968C" opacity="0.5"/>
+        </svg>
+      </div>
+      <div>
+        <h3 style="font-size:18px;margin-bottom:14px;">OO 리조트 &amp; 스파 · 비치 프라이빗 풀빌라</h3>
+        <ul class="stay-specs">
+          <li><span>타입</span><span>비치 프라이빗 풀빌라</span></li>
+          <li><span>면적</span><span>약 95㎡ (28.7평)</span></li>
+          <li><span>침대</span><span>킹 베드 1개</span></li>
+          <li><span>체크인 / 아웃</span><span>14:00 / 12:00</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INCLUDE/EXCLUDE -->
+<section class="band band-alt" id="include">
+  <div class="shell">
+    <div class="sec-head">
+      <div class="eyebrow">WHAT'S INCLUDED</div>
+      <h2>포함 / 불포함 내역</h2>
+    </div>
+    <div class="ie-wrap">
+      <div class="ie-card in">
+        <h3 style="color:var(--accent);">포함 사항</h3>
+        <ul>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>왕복 항공권, 숙박 4박</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>조식 전일, 전용차량, 여행자보험</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>웰컴 기념품, 선셋 디너 1회, 커플 스파 1회</li>
+        </ul>
+      </div>
+      <div class="ie-card ex">
+        <h3>불포함 사항</h3>
+        <ul>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 6l12 12M18 6L6 18"/></svg>중식·석식 일부, 개인 경비</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 6l12 12M18 6L6 18"/></svg>선택 액티비티, 가이드·기사 팁</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 6l12 12M18 6L6 18"/></svg>비자 수수료(해당 시)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="band" id="review">
+  <div class="shell">
+    <div class="sec-head">
+      <div class="eyebrow">REVIEW</div>
+      <h2>다녀온 분들의 이야기</h2>
+    </div>
+    <div class="rev-scroll">
+      <div class="rev-card">
+        <div class="stars">★★★★★</div>
+        <p class="q">결혼 10주년에 딱 맞는 조용하고 로맨틱한 여행이었어요. 일정에 쫓기지 않아서 좋았습니다.</p>
+        <div class="rev-who"><div class="avatar">JH</div><div><div class="nm">정* 님</div><div class="dt">2026.03 다녀옴</div></div></div>
+      </div>
+      <div class="rev-card">
+        <div class="stars">★★★★★</div>
+        <p class="q">사람 없는 해변에서 둘이서만 선셋을 봤던 순간이 아직도 기억나요. 숙소도 정말 좋았습니다.</p>
+        <div class="rev-who"><div class="avatar">SM</div><div><div class="nm">이* 님</div><div class="dt">2026.05 다녀옴</div></div></div>
+      </div>
+      <div class="rev-card">
+        <div class="stars">★★★★☆</div>
+        <p class="q">가이드 없는 자유일정이 처음엔 걱정됐는데, 오히려 저희 속도로 쉴 수 있어서 만족했어요.</p>
+        <div class="rev-who"><div class="avatar">YK</div><div><div class="nm">박* 님</div><div class="dt">2026.06 다녀옴</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="band band-alt" id="faq">
+  <div class="shell">
+    <div class="sec-head">
+      <div class="eyebrow">FAQ</div>
+      <h2>자주 묻는 질문</h2>
+    </div>
+    <div>
+      <details class="faq">
+        <summary>신혼여행과 차이가 있나요?<span class="plus"></span></summary>
+        <p class="a">일정 구성은 유사하지만, 10주년을 기념하는 웰컴 세트와 커플 스파·선셋 디너가 기본 포함되어 있다는 점이 다릅니다.</p>
+      </details>
+      <details class="faq">
+        <summary>아이 동반도 가능한가요?<span class="plus"></span></summary>
+        <p class="a">가능합니다. 다만 일부 디너·스파 구성은 성인 기준으로 설계되어 있어 사전 상담 시 인원을 알려주시면 일정을 조정해 드립니다.</p>
+      </details>
+      <details class="faq">
+        <summary>일정 변경이나 연장이 가능한가요?<span class="plus"></span></summary>
+        <p class="a">출발 14일 전까지는 1회 무료 일정 변경이 가능하며, 연장은 숙박 요금 기준으로 추가 결제 후 진행됩니다.</p>
+      </details>
+      <details class="faq">
+        <summary>비자는 따로 준비해야 하나요?<span class="plus"></span></summary>
+        <p class="a">몰디브는 한국 여권 기준 무비자 입국이 가능합니다. 다만 입국 조건은 변동될 수 있어 출발 전 최신 공지를 안내드립니다.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING / CANCEL -->
+<section class="band" id="booking">
+  <div class="shell">
+    <div class="sec-head">
+      <div class="eyebrow">BOOKING</div>
+      <h2>예약 안내</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="n">01</div><div class="t">상담 신청</div><div class="d">희망 날짜와 인원 전달</div></div>
+      <div class="step"><div class="n">02</div><div class="t">일정 확정</div><div class="d">항공·숙소 옵션 확정</div></div>
+      <div class="step"><div class="n">03</div><div class="t">계약금 결제</div><div class="d">여행요금의 20%</div></div>
+      <div class="step"><div class="n">04</div><div class="t">잔금 결제</div><div class="d">출발 14일 전까지</div></div>
+    </div>
+
+    <h3 style="font-size:16px;margin-top:48px;margin-bottom:4px;">취소 · 환불 규정</h3>
+    <p class="desc" style="margin-bottom:0;">공정거래위원회 표준여행약관 기준 예시입니다.</p>
+    <div class="tbl-wrap">
+      <table class="cancel">
+        <thead><tr><th>취소 시점</th><th>공제 기준</th></tr></thead>
+        <tbody>
+          <tr><td>출발 30일 전</td><td>계약금 환불</td></tr>
+          <tr><td>출발 20~29일 전</td><td>여행요금의 10% 공제</td></tr>
+          <tr><td>출발 10~19일 전</td><td>여행요금의 15% 공제</td></tr>
+          <tr><td>출발 8~9일 전</td><td>여행요금의 20% 공제</td></tr>
+          <tr><td>출발 1~7일 전</td><td>여행요금의 30~50% 공제</td></tr>
+          <tr><td>당일 · 노쇼</td><td>환불 불가</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="band band-alt" id="contact">
+  <div class="shell">
+    <div class="sec-head">
+      <div class="eyebrow">CONTACT</div>
+      <h2>상담 신청</h2>
+      <p class="desc">연락처를 남겨주시면 1~2영업일 내로 안내드립니다.</p>
+    </div>
+    <div class="contact-wrap">
+      <form class="contact-card" id="contactForm">
+        <div class="field"><label for="f-name">이름</label><input id="f-name" type="text" placeholder="홍길동" required></div>
+        <div class="field"><label for="f-tel">연락처</label><input id="f-tel" type="tel" placeholder="010-0000-0000" required></div>
+        <div class="field"><label for="f-date">희망 출발일</label><input id="f-date" type="text" placeholder="예: 2027년 1월 중"></div>
+        <div class="field"><label for="f-count">인원</label><input id="f-count" type="text" placeholder="2명" value="2명"></div>
+        <button class="btn btn-primary" type="submit" style="width:100%;">상담 신청하기</button>
+        <p id="formMsg" hidden style="font-size:13px;color:var(--accent);margin-top:12px;">신청이 접수되었습니다. 곧 연락드리겠습니다.</p>
+      </form>
+      <div class="contact-card">
+        <div class="row"><span class="lbl">대표 전화</span><span>1588-0000</span></div>
+        <div class="row"><span class="lbl">이메일</span><span>contact@ootour.co.kr</span></div>
+        <div class="row"><span class="lbl">상담 시간</span><span>평일 10:00–18:00</span></div>
+        <div class="row"><span class="lbl">카카오톡 채널</span><span>@텐이어즈투어</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="band" style="padding-top:0;">
+  <div class="shell">
+    <div class="final-cta">
+      <h2>지금 상담 신청하고<br>특별 할인 혜택 받기</h2>
+      <a class="btn btn-primary" href="#contact">지금 상담 신청하기</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="shell foot-grid">
+    <div class="foot-biz">
+      <b>(주)텐이어즈투어</b> · 대표 홍길동 · 사업자등록번호 123-45-67890<br>
+      통신판매업신고번호 2026-서울강남-1234 · 관광사업등록번호 제2026-000123호<br>
+      서울특별시 강남구 OO로 123, 4층 · 대표전화 1588-0000 · contact@ootour.co.kr
+      <div class="disclaimer">※ 본 페이지는 디자인 시안이며, 가격·사업자 정보·숙소명 등은 예시 데이터입니다. 실제 게재 전 반드시 실제 정보로 교체해 주세요.</div>
+    </div>
+    <div class="foot-links">
+      <a href="#faq">이용약관</a><a href="#faq">개인정보처리방침</a><a href="#contact">제휴 문의</a>
+    </div>
+  </div>
+  <div class="shell foot-bottom">© 2026 TEN YEARS TOUR. All rights reserved.</div>
+</footer>
+
+<div class="mobile-cta">
+  <a class="btn btn-ghost" href="tel:15880000">전화 상담</a>
+  <a class="btn btn-primary" href="#contact">상담 신청</a>
+</div>
+
+<script>
+document.getElementById('contactForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  document.getElementById('formMsg').hidden = false;
+});
+</script>
